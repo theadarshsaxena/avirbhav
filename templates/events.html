@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+
+{% block title %}Events of Avirbhav{% endblock title %}
+
+{% block body %}
+
+
+    <main id="main">
+
+        <section id="counts" class="counts">
+            <header class="section-header">
+                <h2>Live Score</h2>
+            </header>
+
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <h2 class="harry large counter">Team Slytherin</h2>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{scores.Slytherin}}"
+                                    data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Points</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <h2 class="harry large counter">Team RavenClaw</h2>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{scores.Ravenclaw}}"
+                                    data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Points</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <h2 class="harry large counter">Team HufflePuff</h2>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{scores.Hufflepuff}}"
+                                    data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Points</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <h2 class="harry large counter">Team Gryffindor</h2>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="{{scores.Gryffindor}}" data-purecounter-duration="1"
+                                    class="purecounter"></span>
+                                <p>Points</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section id="features" class="features">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Ongoing Events</h2>
+                </header>
+
+                <!-- Ongoing Event Block Started -->
+                {% for event in ongoing %}
+                <div class="container mt-5">
+                    <div class="row gy-4">
+                        <div class="container event">
+                            <div class="event-details d-flex justify-content-between">
+                                <div class="event-num">Event #{{event.eventnum}}</div>
+                                <div class="event-dates">{{event.startdate}} - {{event.enddate}}</div>
+                            </div>
+                            <div class="event-name text-center">{{event.title}}</div>
+
+                            <div class="row ">
+                                <div class="col-lg-6" style="align-self: center;">
+                                    <div class="event-points d-flex ">
+                                        <div class="event-score">Scores</div>
+                                    </div>
+                                    <div class="event-points">
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">Winner :{% if event.winner %}<b>{{event.winner}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                        </div>
+                                        {% if event.firstrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">1st Runner Up: :{% if event.firstrunnerup %} <b>{{event.firstrunnerup}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if event.secondrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">2nd Runner Up: :{% if event.secondrunnerup %}<b>{{event.secondrunnerup}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if event.thirdrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">3rd Runner Up: :{% if event.thirdrunnerup %}<b>{{event.thirdrunnerup}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-penalty">Penalty:</div>
+                                            <div class="event-point">200</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center text-center text-lg-start">
+                                <a href="/events"
+                                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                  <span  style="
+                                  background: #212121;
+padding: 10px 25px;
+border-radius: 31px;
+color: #eee;
+border: 2px white solid;
+                                  
+                                  "> View Event</span>
+                                </a>
+                              </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Ongoing Event Block Ended -->
+
+        </section>
+
+        <section id="features" class="features">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Completed Events</h2>
+                </header>
+
+                <div class="row">
+
+                    <!-- Ongoing Event Block Started -->
+                    {% for event in completed %}
+                <div class="container mt-5">
+                    <div class="row gy-4">
+                        <div class="container event">
+                            <div class="event-details d-flex justify-content-between">
+                                <div class="event-num">Event #{{event.eventnum}}</div>
+                                <div class="event-dates">{{event.startdate}} - {{event.enddate}}</div>
+                            </div>
+                            <div class="event-name text-center">{{event.title}}</div>
+
+                            <div class="row ">
+                                <div class="col-lg-6" style="align-self: center;">
+                                    <div class="event-points d-flex ">
+                                        <div class="event-score">Scores</div>
+                                    </div>
+                                    <div class="event-points">
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">Winner :{% if event.winner %}<b>{{event.winner}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                        </div>
+                                        {% if event.firstrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">1st Runner Up: :{% if event.firstrunnerup %} <b>{{event.firstrunnerup}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if event.secondrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">2nd Runner Up: :{% if event.secondrunnerup %}<b>{{event.secondrunnerup}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if event.thirdrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">3rd Runner Up: :{% if event.thirdrunnerup %}<b>{{event.thirdrunnerup}}</b>{% endif %}</div>
+                                            <div class="event-result"> +100 </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-penalty">Penalty:</div>
+                                            <div class="event-point">200</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center text-center text-lg-start">
+                                <a href="/events"
+                                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                  <span  style="
+                                  background: #212121;
+padding: 10px 25px;
+border-radius: 31px;
+color: #eee;
+border: 2px white solid;
+                                  
+                                  "> View Event</span>
+                                </a>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                    <!-- Ongoing Event Block Ended -->
+
+                </div>
+
+        </section>
+
+        <section id="features" class="features">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Upcoming Events</h2>
+                </header>
+
+
+                <!-- Ongoing Event Block Started -->
+                {% for event in upcoming %}
+                <div class="container mt-5">
+                    <div class="row gy-4">
+                        <div class="container event">
+                            <div class="event-details d-flex justify-content-between">
+                                <div class="event-num">Event #{{event.eventnum}}</div>
+                                <div class="event-dates">{{event.startdate}} - {{event.enddate}}</div>
+                            </div>
+                            <div class="event-name text-center">{{event.title}}</div>
+
+                            <div class="row ">
+                                <div class="col-lg-6" style="align-self: center;">
+                                    <div class="event-points d-flex ">
+                                        <div class="event-score">Scores</div>
+                                    </div>
+                                    <div class="event-points">
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">Winner :</div>
+                                            <div class="event-result"> +100 </div>
+                                        </div>
+                                        {% if event.firstrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">1st Runner Up: </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if event.secondrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">2nd Runner Up: </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        {% if event.thirdrunnerscore != 0 %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-winner">3rd Runner Up: </div>
+                                            <div> </div>
+                                        </div>
+                                        {% endif %}
+                                        <div class="event-points d-flex">
+                                            <div class="event-penalty">Penalty:</div>
+                                            <div class="event-point">200</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center text-center text-lg-start">
+                                <a href="/events"
+                                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                  <span  style="
+                                  background: #212121;
+padding: 10px 25px;
+border-radius: 31px;
+color: #eee;
+border: 2px white solid;
+                                  
+                                  "> View Event</span>
+                                </a>
+                              </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Ongoing Event Block Ended -->
+                
+
+            </div>
+
+        </section>
+
+
+    </main><!-- End #main -->
+    {% endblock body %}
