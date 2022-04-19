@@ -86,7 +86,7 @@
                         <td class="text-center">
                             <div class="d-flex align-items-center justify-content-around">
                                 <div>
-                                    {{ event.winner}}
+                                    {% if event.winner %}{{ event.winner}} {% else %} - {% endif %}
                                 </div>
                                 <div class="event-block text-center">
                                     {{event.winnerscore}}
@@ -96,17 +96,19 @@
                         <td class="text-center">
                             <div class="d-flex align-items-center justify-content-around">
                                 <div>
-                                    {{event.firstrunnerup}}
+                                    {% if event.firstrunner %} {{event.firstrunner}} {% else %} - {% endif %}
+                                    
                                 </div>
                                 <div class="event-block text-center">
                                     {{event.firstrunnerscore}}
                                 </div>
                             </div>
                         </td>
+                        
                         <td class="text-center">
                             <div class="d-flex align-items-center justify-content-around">
                                 <div>
-                                    {{event.secondrunnerup}}
+                                    {% if event.secondrunner %}{{event.secondrunner}}{% else %} - {% endif %}
                                 </div>
                                 <div class="event-block text-center">
                                     {{event.secondrunnerscore}}
@@ -116,7 +118,7 @@
                         <td class="text-center">
                             <div class="d-flex align-items-center justify-content-around">
                                 <div>
-                                    {{event.thirdrunnerup}}
+                                    {% if event.thirdrunner %}{{event.thirdrunner}}{% else %} - {% endif %}
                                 </div>
                                 <div class="event-block text-center">
                                     {{event.thirdrunnerscore}}
