@@ -25,10 +25,10 @@
                 <li><strong>Event Name</strong>: {{event.title}}</li>
                 <li><strong>Penalty</strong>: <span class="event-block">{{event.penalty}}</span></li>
                 <li><strong>Score</strong></li>
-                <li><strong>Winner</strong>: {% if event.winner %}<b style="color: green; margin-right: 5px; margin-left: 5px;">{{event.winner}}</b>{%endif %}<span class="event-block">{{event.winnerscore}}</span></li>
-                <li><strong>1st Runner Up</strong>:{% if event.firstrunnerup %}<b>{{event.firstrunnerup}}</b>{% endif %}<span class="event-block">{{event.firstrunnerscore}}</span> </li>
-                <li><strong>2nd Runner Up</strong>:{% if event.secondrunnerup %}<b>{{event.secondrunnerup}}</b>{% endif %}<span class="event-block">{{event.secondrunnerscore}}</span> </li>
-                <li><strong>3rd Runner Up</strong>:{% if event.thirdrunnerup %}<b>{{event.thirdrunnerup}}</b>{% endif %}<span class="event-block">{{event.thirdrunnerscore}}</span> </li>
+                <li><strong style="font-family: 'Stylish', sans-serif;">Winner</strong>: {% if event.winner %}<b style="color: green; margin-right: 5px; margin-left: 5px;">{{event.winner}}</b>{%endif %}<span class="event-block">{{event.winnerscore}}</span></li>
+                <li><strong style="font-family: 'Stylish', sans-serif;">1st Runner Up</strong>:{% if event.firstrunner %}<b style="margin-left: 5px">{{event.firstrunner}}</b>{% endif %}<span class="event-block">{{event.firstrunnerscore}}</span> </li>
+                <li><strong style="font-family: 'Stylish', sans-serif;">2nd Runner Up</strong>:{% if event.secondrunner %}<b style="margin-left: 5px">{{event.secondrunner}}</b>{% endif %}<span class="event-block">{{event.secondrunnerscore}}</span> </li>
+                <li><strong style="font-family: 'Stylish', sans-serif;">3rd Runner Up</strong>:{% if event.thirdrunner %}<b style="margin-left: 5px">{{event.thirdrunner}}</b>{% endif %}<span class="event-block">{{event.thirdrunnerscore}}</span> </li>
               </ul>
             </div>
 

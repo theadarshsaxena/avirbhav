@@ -37,27 +37,27 @@
                                 <div class="event-points">
                                     <div class="event-points d-flex">
                                         <div class="event-winner">Winner :{% if event.winner %}<b style="color: green; margin-right: 5px; margin-left: 5px;">{{event.winner}}</b>{%endif %}</div>
-                                        <div class="event-result"> +{{event.winnerscore}} </div>
+                                        <div class="event-result"> {{event.winnerscore}} </div>
                                     </div>
                                     {% if event.firstrunnerscore != 0 %}
                                     <div class="event-points d-flex">
-                                        <div class="event-winner">1st Runner Up: :{% if event.firstrunnerup %}<b>{{event.firstrunnerup}}</b>{% endif %}
+                                        <div class="event-winner">1st Runner Up: :{% if event.firstrunner %}<b>{{event.firstrunner}}</b>{% endif %}
                                         </div>
-                                        <div class="event-result"> +{{event.firstrunnerscore}} </div>
+                                        <div class="event-result"> {{event.firstrunnerscore}} </div>
                                         <div> </div>
                                     </div>
                                     {% endif %}
                                     {% if event.secondrunnerscore != 0 %}
                                     <div class="event-points d-flex">
-                                        <div class="event-winner">2nd Runner Up: :{% if event.secondrunnerup %}<b>{{event.secondrunnerup}}</b>{% endif %}</div>
-                                        <div class="event-result"> +{{event.secondrunnerscore}} </div>
+                                        <div class="event-winner">2nd Runner Up: :{% if event.secondrunner %}<b>{{event.secondrunner}}</b>{% endif %}</div>
+                                        <div class="event-result"> {{event.secondrunnerscore}} </div>
                                         <div> </div>
                                     </div>
                                     {% endif %}
                                     {% if event.thirdrunnerscore != 0 %}
                                     <div class="event-points d-flex">
-                                        <div class="event-winner">3rd Runner Up: :{% if event.thirdrunnerup %}<b>{{event.thirdrunnerup}}</b>{% endif %}</div>
-                                        <div class="event-result"> +{{event.thirdrunnerscore}} </div>
+                                        <div class="event-winner">3rd Runner Up: :{% if event.thirdrunner %}<b>{{event.thirdrunner}}</b>{% endif %}</div>
+                                        <div class="event-result"> {{event.thirdrunnerscore}} </div>
                                         <div> </div>
                                     </div>
                                     {% endif %}
@@ -121,28 +121,28 @@ border: 2px white solid;
                                     <div class="event-points">
                                         <div class="event-points d-flex">
                                             <div class="event-winner">Winner :{% if event.winner %}<b style="color: green; margin-right: 5px; margin-left: 5px;">{{event.winner}}</b>{% endif %}</div>
-                                            <div class="event-result"> +{{event.winnerscore}} </div>
+                                            <div class="event-result"> {{event.winnerscore}} </div>
                                         </div>
                                         {% if event.firstrunnerscore != 0 %}
                                         <div class="event-points d-flex">
-                                            <div class="event-winner">1st Runner Up: :{% if event.firstrunnerup %}
-                                                <b>{{event.firstrunnerup}}</b>{% endif %}
+                                            <div class="event-winner">1st Runner Up: {% if event.firstrunner %}
+                                                <b>{{event.firstrunner}}</b>{% endif %}
                                             </div>
-                                            <div class="event-result"> +{{event.firstrunnerscore}} </div>
+                                            <div class="event-result"> {{event.firstrunnerscore}} </div>
                                             <div> </div>
                                         </div>
                                         {% endif %}
                                         {% if event.secondrunnerscore != 0 %}
                                         <div class="event-points d-flex">
-                                            <div class="event-winner">2nd Runner Up: :{% if event.secondrunnerup %}<b>{{event.secondrunnerup}}</b>{% endif %}</div>
-                                            <div class="event-result"> +{{event.secondrunnerscore}} </div>
+                                            <div class="event-winner">2nd Runner Up: :{% if event.secondrunner %}<b>{{event.secondrunner}}</b>{% endif %}</div>
+                                            <div class="event-result"> {{event.secondrunnerscore}} </div>
                                             <div> </div>
                                         </div>
                                         {% endif %}
                                         {% if event.thirdrunnerscore != 0 %}
                                         <div class="event-points d-flex">
-                                            <div class="event-winner">3rd Runner Up: :{% if event.thirdrunnerup %}<b>{{event.thirdrunnerup}}</b>{% endif %}</div>
-                                            <div class="event-result"> +{{event.thirdrunnerscore}} </div>
+                                            <div class="event-winner">3rd Runner Up: :{% if event.thirdrunner %}<b>{{event.thirdrunner}}</b>{% endif %}</div>
+                                            <div class="event-result"> {{event.thirdrunnerscore}} </div>
                                             <div> </div>
                                         </div>
                                         {% endif %}

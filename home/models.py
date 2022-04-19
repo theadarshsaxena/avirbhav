@@ -38,6 +38,7 @@ class Event(models.Model):
     thirdrunner = models.ForeignKey(Team, verbose_name =u'Third Runner Up', on_delete=models.CASCADE, blank=True, null=True, related_name='%(class)s_thirdrunner')
     thirdrunnerscore = models.IntegerField('Third Runner Up Score', default=0)
     penalty = models.CharField(max_length=100, blank=True)
+    
     startdate = models.DateField()
     enddate = models.DateField()
     status = models.CharField(max_length=1, choices=STATUS, default='U')
