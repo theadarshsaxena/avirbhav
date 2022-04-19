@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8bdxlobufpo5tox#b3p$_^*f+(u&keagyt%oy_kn$yhb_2p_=z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ravenclaw.avirbhav.tech', 'avirbhav.tech', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -121,6 +121,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Following static root vali line uncomment rahegi when deploying
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+#Following staticfiles vali line hata dena when deploying
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]

@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}Scores{% endblock title %}
+
+{% block body %}
+
+<main id="main">
+    <section id="counts" class="counts">
+        <header class="section-header mt-4">
+            <h2>Live Score</h2>
+        </header>
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="count-box">
+                        <h2 class="harry large counter">Team Slytherin</h2>
+                        <div>
+                            <span data-purecounter-start="0" data-purecounter-end="{{s}}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Points</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="count-box">
+                        <h2 class="harry large counter">Team RavenClaw</h2>
+                        <div>
+                            <span data-purecounter-start="0" data-purecounter-end="{{r}}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Points</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="count-box">
+                        <h2 class="harry large counter">Team HufflePuff</h2>
+                        <div>
+                            <span data-purecounter-start="0" data-purecounter-end="{{h}}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Points</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="count-box">
+                        <h2 class="harry large counter">Team Gryffindor</h2>
+                        <div>
+                            <span data-purecounter-start="0" data-purecounter-end="{{g}}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Points</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div class="score-section mt-4" style="margin-top: 1rem; margin-bottom: 100px">
+        <header class="section-header mt-5">
+            <h2>Scores</h2>
+        </header>
+        <div class="container mt-5">
+            <table class="table " style="color:#eee;">
+                <thead>
+                    <tr>
+                        <th scope="col">Event Name</th>
+                        <th scope="col" class="text-center">Winner</th>
+                        <th scope="col" class="text-center">First Runner Up</th>
+                        <th scope="col" class="text-center">Second Runner Up</th>
+                        <th scope="col" class="text-center">Third Runner Up</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table Row Start -->
+                    {% for event in events %}
+                    <tr>
+                        <th scope="row">{{ event.title }}</th>
+                        <td class="text-center">
+                            <div class="d-flex align-items-center justify-content-around">
+                                <div>
+                                    {{ event.winner}}
+                                </div>
+                                <div class="event-block text-center">
+                                    {{event.winnerscore}}
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex align-items-center justify-content-around">
+                                <div>
+                                    {{event.firstrunnerup}}
+                                </div>
+                                <div class="event-block text-center">
+                                    {{event.firstrunnerscore}}
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex align-items-center justify-content-around">
+                                <div>
+                                    {{event.secondrunnerup}}
+                                </div>
+                                <div class="event-block text-center">
+                                    {{event.secondrunnerscore}}
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="d-flex align-items-center justify-content-around">
+                                <div>
+                                    {{event.thirdrunnerup}}
+                                </div>
+                                <div class="event-block text-center">
+                                    {{event.thirdrunnerscore}}
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                    <!-- Table Row end -->
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</main><!-- End #main -->
+
+
+
+
+{% endblock body %}

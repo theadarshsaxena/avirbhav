@@ -2,6 +2,86 @@
 <html lang="en">
 
 <head>
+     
+  <style>
+    header{
+      background-color: #212121;
+    }
+#spinner-wrapper {
+	background: grey;
+  height: 100%;
+  width: 100%;
+}
+
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 40px;
+	width: 40px;
+	transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+	animation: animate 1.2s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	10%,
+	100% {
+		height: 40px;
+		width: 40px;
+	}
+	65% {
+		height: 70px;
+		width: 70px;
+	}
+}
+
+.span-block {
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 20px;
+	animation: rotate 1.2s linear both infinite;
+}
+
+@keyframes rotate {
+	0%,
+	30% {
+		transform: rotate(0);
+	}
+	65% {
+		transform: rotate(-40deg);
+	}
+	100% {
+		transform: rotate(-90deg);
+	}
+}
+
+#block1 {
+	top: 0;
+	left: 0;
+	background: #55d462;
+}
+
+#block2 {
+	top: 0;
+	right: 0;
+	background: #8675e5;
+}
+
+#block3 {
+	bottom: 0;
+	left: 0;
+	background: #d84c77;
+}
+
+#block4 {
+	bottom: 0;
+	right: 0;
+	background: #fd9a3f;
+}
+
+  </style>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -41,8 +121,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="/events">Events</a></li>
-          <li><a class="nav-link scrollto" href="/thanks">Feedback</a></li>
+            <li><a class="nav-link scrollto" href="/">Home</a></li>
+            <li><a class="nav-link scrollto" href="/events">Events</a></li>
+          <li><a class="nav-link scrollto" href="/scores">Scores</a></li>
+          <li><a class="nav-link scrollto" href="/thanks">Thanks</a></li>
+          <li><a class="nav-link scrollto" href="/feedback">Feedback</a></li>
+          <li><a class="nav-link scrollto" href="/sponsorus">Sponsor Us</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -80,6 +164,12 @@
 
   <!-- Template Main JS File -->
   <script src="/static/assets/js/main.js"></script>
+  <script>
+    let spinnerWrapper = document.getElementById('spinner-wrapper');
+    window.addEventListener('load', function(){
+      spinnerWrapper.style.display = 'none';
+    });
+  </script>
 
 </body>
 

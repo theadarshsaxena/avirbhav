@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{{event.title}}{% endblock title %}
+
+{% block body %}
+
+
+  <main id="main">
+
+    <section id="portfolio-details" class="portfolio-details">
+      <header class="section-header mt-5">
+        <h2>Events Details</h2>
+      </header>
+
+      <div class="container">
+
+
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="portfolio-info text-center">
+              <!-- <h2>Event information</h2> -->
+              <ul>
+                <li><strong>Event Name</strong>: {{event.title}}</li>
+                <li><strong>Penalty</strong>: <span class="event-block">{{event.penalty}}</span></li>
+                <li><strong>Score</strong></li>
+                <li><strong>Winner</strong>: {% if event.winner %}<b style="color: green; margin-right: 5px; margin-left: 5px;">{{event.winner}}</b>{%endif %}<span class="event-block">{{event.winnerscore}}</span></li>
+                <li><strong>1st Runner Up</strong>:{% if event.firstrunnerup %}<b>{{event.firstrunnerup}}</b>{% endif %}<span class="event-block">{{event.firstrunnerscore}}</span> </li>
+                <li><strong>2nd Runner Up</strong>:{% if event.secondrunnerup %}<b>{{event.secondrunnerup}}</b>{% endif %}<span class="event-block">{{event.secondrunnerscore}}</span> </li>
+                <li><strong>3rd Runner Up</strong>:{% if event.thirdrunnerup %}<b>{{event.thirdrunnerup}}</b>{% endif %}<span class="event-block">{{event.thirdrunnerscore}}</span> </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h1>About {{event.title}}</h1>
+              <p>{{event.about}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-fluid text-center">
+          <img src="{{event.image}}" style="width:60vw" alt="Event-image">
+        </div>
+      </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+
+
+  </main><!-- End #main -->
+  {% endblock body %}

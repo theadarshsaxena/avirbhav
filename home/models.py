@@ -42,7 +42,7 @@ class Event(models.Model):
     enddate = models.DateField()
     status = models.CharField(max_length=1, choices=STATUS, default='U')
     about = models.TextField(max_length=500)
-    image = models.URLField(default="http://cdn.avirbhav.tech/avirbhav.jpeg")
+    image = models.URLField(default="http://cdn.avirbhav.tech/avirbhav.png")
 
     def __str__(self):
         return self.title
